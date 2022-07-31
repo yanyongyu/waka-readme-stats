@@ -331,6 +331,7 @@ def get_waka_time_stats():
         print("Error With WAKA time API returned " + str(request.status_code) + " Response " + str(request.json()))
     else:
         data = request.json()
+        print(data)
         if showCommit.lower() in truthy:
             stats = stats + generate_commit_list(tz=data['data']['timezone']) + '\n\n'
 
