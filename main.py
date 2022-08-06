@@ -331,7 +331,7 @@ def get_waka_time_stats():
         print("Error With WAKA time API returned " + str(request.status_code) + " Response " + str(request.json()))
     else:
         data = request.json()
-        print(request.text)
+        print(request.status_coode, request.text)
         if showCommit.lower() in truthy:
             stats = stats + generate_commit_list(tz=data['data']['timezone']) + '\n\n'
 
@@ -488,7 +488,7 @@ def get_stats(github):
             print("User stats are calculating. Try again later.")
         else:
             data = request.json()
-            print(request.text)
+            print(request.status_code, request.text)
             stats += '![Code Time](http://img.shields.io/badge/' + quote(
                 str("Code Time")) + '-' + quote(str(
                 data['data']['text'])) + '-blue)\n\n'
